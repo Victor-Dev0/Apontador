@@ -38,7 +38,7 @@ if usuario_salvo is None and senha_salva is None:
     usuario_salvo , senha_salva = obter_credencial()
 
 
-dia = '28'#str(datetime.datetime.now().day)
+dia = str(datetime.datetime.now().day)
 
 driver = webdriver.Chrome()
 
