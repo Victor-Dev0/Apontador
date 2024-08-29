@@ -74,12 +74,24 @@ try:
     elif len(elementos_dia) == 1:
         elementos_dia[0].click()
 
+    time.sleep(1)
+    elemento_select = driver.find_element(By.XPATH, "//select[@id='createActivities']")
+    
+    
+    opcoes = driver.find_elements(By.XPATH, "//option")
     
     # APONTANDO
-    pyautogui.click(x=1080, y=459, duration=1)
-    pyautogui.press('pgdn')
-    pyautogui.press('enter')
-    pyautogui.press('TAB')
+    #pyautogui.click(x=1080, y=459, duration=1)
+    elemento_select.click()
+    time.sleep(1)
+    #pyautogui.press('pgdn')
+    opcoes[1].click()
+    time.sleep(1)
+    #pyautogui.press('enter')
+    input_horas = driver.find_element(By.XPATH, "//input[@id='createStartTime']")
+    input_horas.click()
+    time.sleep(1)
+    #pyautogui.press('TAB')
     pyautogui.write('08:00')
     pyautogui.press('TAB')
     pyautogui.write('Meta3AI')
@@ -87,6 +99,7 @@ try:
     pyautogui.press('enter')
     driver.quit()
     pyautogui.alert('Apontamento feito com sucesso!')
+
 except Exception as e:
     print(f'Erro: {e}')
     pyautogui.alert(f'Erro: {e}')
